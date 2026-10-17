@@ -1,0 +1,218 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 95px);
+  display: flex;
+  align-items: center;
+  padding: 0 7% 7rem;
+  background-image: url('/assets/hero-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 46%;
+  max-width: 650px;
+}
+
+.hero-tagline {
+  margin: 0 0 1.2rem;
+  color: #ef4f70;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  margin: 0;
+  color: #321b16;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(4rem, 6vw, 6.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -3px;
+}
+
+.hero-content h1 span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ef5573;
+}
+
+.hero-description {
+  max-width: 540px;
+  margin: 2rem 0 2.2rem;
+  color: #4d3832;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-actions button {
+  padding: 1rem 1.8rem;
+  border-radius: 9px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.hero-actions button:first-child {
+  border: 2px solid #ef5573;
+  background-color: #ef5573;
+  color: #ffffff;
+}
+
+.hero-actions button:first-child:hover {
+  background-color: #e74767;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(239, 85, 115, 0.3);
+}
+
+.hero-actions button:last-child {
+  border: 2px solid #ef5573;
+  background-color: rgba(255, 255, 255, 0.55);
+  color: #ef5573;
+  backdrop-filter: blur(3px);
+}
+
+.hero-actions button:last-child:hover {
+  background-color: #ef5573;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 90px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fffaf7' d='M0,60 C120,25 230,105 360,68 C490,30 590,25 720,67 C850,108 970,95 1090,55 C1210,15 1340,30 1440,60 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 720px;
+    padding: 4rem 5% 6rem;
+    background-position: 60% center;
+  }
+
+  .hero-content {
+    width: 48%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(3.4rem, 7vw, 5rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    position: relative;
+    min-height: 850px;
+    width: 100%;
+    display: block;
+    padding: 2.25rem 1.25rem 5rem;
+    box-sizing: border-box;
+
+    background-image: url('/assets/hero-image-mobile.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-tagline {
+    margin: 0 0 0.7rem;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-content h1 {
+    max-width: 360px;
+    margin: 0;
+    font-size: clamp(2.8rem, 12vw, 3.6rem);
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content h1 span {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .hero-description {
+    max-width: 310px;
+    margin: 1.15rem 0 1.3rem;
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 330px;
+    gap: 0.7rem;
+  }
+
+  .hero-actions button {
+    flex: 1;
+    width: auto;
+    padding: 0.85rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .hero::after {
+    height: 55px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 850px;
+    padding: 2rem 1.1rem 4.5rem;
+
+    background-image: url('/assets/hero-image-mobile.png');
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-content h1 {
+    max-width: 340px;
+    font-size: 2.9rem;
+  }
+
+  .hero-description {
+    max-width: 295px;
+    font-size: 0.84rem;
+  }
+}

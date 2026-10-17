@@ -1,0 +1,57 @@
+<nav class="nav-bar" aria-label="Main navigation" (keydown.escape)="closeMenu()">
+  <a class="logo-image" routerLink="/" aria-label="Hally’s home" (click)="closeMenu()">
+    <img src="assets/logo.png" alt="Hally’s Rolls and More" />
+  </a>
+
+  <div class="nav-container">
+    <ul class="nav-links">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="router-link-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ariaCurrentWhenActive="page"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="nav-button">
+    <button routerLink="/contact" fragment="location">Visit Us <span>→</span></button>
+  </div>
+
+  <button
+    class="hamburger"
+    type="button"
+    (click)="inMobile()"
+    [attr.aria-expanded]="mobile()"
+    aria-controls="mobile-navigation"
+    [attr.aria-label]="mobile() ? 'Close menu' : 'Open menu'"
+  >
+    {{ mobile() ? '✕' : '☰' }}
+  </button>
+
+  @if (mobile()) {
+    <div class="mobile-menu" id="mobile-navigation">
+      <ul class="mobile-nav-links">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              (click)="closeMenu()"
+              routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</nav>

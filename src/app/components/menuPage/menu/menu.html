@@ -1,0 +1,31 @@
+<div class="menu-header">
+  <span class="menu-label">OUR MENU</span>
+
+  <h1>
+    Made Fresh.
+    <span>Rolled With Love.</span>
+  </h1>
+
+  <p>Explore Hally's favourites and find your next craving.</p>
+</div>
+
+<div class="menu-filters" role="group" aria-label="Filter menu by category">
+  @for (category of categories; track category) {
+    <button
+      type="button"
+      [class.active]="selectedCategory() === category"
+      [attr.aria-pressed]="selectedCategory() === category"
+      (click)="selectedCategory.set(category)"
+    >
+      {{ category }}
+    </button>
+  }
+</div>
+
+<p class="menu-count" role="status">{{ filteredMenu().length }} flavours · Prices in CAD</p>
+
+<div class="menu-grid">
+  @for (menu of filteredMenu(); track menu.id) {
+    <app-menu-card [product]="menu" />
+  }
+</div>

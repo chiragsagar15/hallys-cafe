@@ -1,0 +1,211 @@
+<main class="contact-page">
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <span>GET IN TOUCH</span>
+
+      <h1>
+        We'd Love To
+        <span>Hear From You!</span>
+      </h1>
+
+      <p>Questions, feedback, or just want to say hello? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-decoration">
+      <div class="decoration-circle">
+        <span>♡</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-main">
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-heading">
+          <span>COME SAY HELLO</span>
+          <h2>Visit Hally's</h2>
+
+          <p>Stop by, grab your favourite treat, and enjoy the Hally's vibe.</p>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-info-item">
+            <div class="contact-icon">⌖</div>
+
+            <div class="contact-info-content">
+              <h3>Address</h3>
+
+              <p>
+                334 Main St<br />
+                Shediac, NB E4P 2E5
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">◷</div>
+
+            <div class="contact-info-content">
+              <h3>Opening Hours</h3>
+
+              <p>
+                Monday – Sunday<br />
+                11:00 AM – 9:00 PM
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">☎</div>
+
+            <div class="contact-info-content">
+              <h3>Contact</h3>
+
+              <p>See the contact form.</p>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="directions-button"
+          href="https://www.google.com/maps/dir/?api=1&destination=334+Main+St+Shediac+NB+E4P+2E5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions
+        </a>
+      </div>
+
+      <div class="contact-form-container">
+        <div class="form-heading">
+          <span>SEND US A MESSAGE</span>
+
+          <h2>Let's Talk!</h2>
+
+          <p>
+            Have a question or something you'd like to share? Send us a message and we'll get back
+            to you.
+          </p>
+        </div>
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+
+            <input
+              id="name"
+              type="text"
+              name="name"
+              maxlength="100"
+              autocomplete="name"
+              placeholder="Enter your name"
+              [(ngModel)]="name"
+              required
+              pattern=".*\S.*"
+              #nameInput="ngModel"
+            />
+
+            @if (nameInput.invalid && nameInput.touched) {
+              <p class="form-error">Name is required.</p>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+
+            <input
+              id="email"
+              type="email"
+              name="email"
+              maxlength="254"
+              autocomplete="email"
+              placeholder="Enter your email"
+              [(ngModel)]="email"
+              required
+              email
+              #emailInput="ngModel"
+            />
+
+            @if (emailInput.invalid && emailInput.touched) {
+              @if (emailInput.errors?.['required']) {
+                <p class="form-error">Email is required.</p>
+              }
+
+              @if (emailInput.errors?.['email']) {
+                <p class="form-error">Please enter a valid email.</p>
+              }
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+
+            <textarea
+              id="message"
+              name="message"
+              maxlength="5000"
+              rows="6"
+              placeholder="Write your message here..."
+              [(ngModel)]="message"
+              required
+              #messageInput="ngModel"
+            ></textarea>
+
+            @if (messageInput.invalid && messageInput.touched) {
+              <p class="form-error">Message is required.</p>
+            }
+          </div>
+
+          <button type="submit" class="submit-button" disabled>
+            @if (isLoading()) {
+              Sending...
+            } @else {
+              Contact form is coming soon.
+            }
+          </button>
+
+          @if (isSubmitted()) {
+            <p class="success-message" role="status">Thank you! Your message has been received.</p>
+          }
+
+          @if (hasError()) {
+            <p class="error-message" role="alert">
+              Your message could not be sent. Check your details and try again shortly.
+            </p>
+          }
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-location" id="location">
+    <div class="location-heading">
+      <span>FIND US IN SHEDIAC</span>
+      <h2>Come Visit Us</h2>
+
+      <p>We're located right on Main Street in the heart of Shediac.</p>
+    </div>
+
+    <div class="map-container">
+      <div class="map-placeholder">
+        <div class="map-pin">⌖</div>
+
+        <h3>Hally's</h3>
+
+        <p>
+          334 Main St<br />
+          Shediac, NB E4P 2E5
+        </p>
+
+        <a
+          class="map-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=334+Main+St+Shediac+NB+E4P+2E5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open In Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

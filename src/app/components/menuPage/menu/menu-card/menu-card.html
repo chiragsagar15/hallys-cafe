@@ -1,0 +1,19 @@
+<article class="menu-card">
+  <div class="menu-card-image">
+    <img loading="lazy" [src]="product().image" [alt]="product().productName" />
+  </div>
+
+  <div class="menu-card-content">
+    <h3>
+      {{ product().productName }}
+    </h3>
+    <p>{{ product().description }}</p>
+
+    <div class="menu-card-footer">
+      <span>{{ product().category }}</span>
+      <span>
+        {{ product().price | currency: 'CAD' : 'symbol-narrow' : '1.2-2' }}
+      </span>
+    </div>
+  </div>
+</article>

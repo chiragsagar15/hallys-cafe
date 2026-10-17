@@ -1,0 +1,17 @@
+<section class="featured-section">
+  <div class="featured-header">
+    <span>OUR FAVOURITES</span>
+    <h2>Customer Favourites</h2>
+    <p>Some of Hally's most-loved creations.</p>
+  </div>
+
+  <div class="featured-grid">
+    @for (product of featuredMenu; track product.id) {
+      <app-menu-card [product]="product" />
+    }
+  </div>
+
+  <div class="featured-action">
+    <button routerLink="/menu">View Full Menu</button>
+  </div>
+</section>
