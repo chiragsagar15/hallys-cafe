@@ -137,6 +137,20 @@
   gap: 0.7rem;
 }
 
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.social-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
 .footer-bottom {
   max-width: 1250px;
   margin: 0 auto;
